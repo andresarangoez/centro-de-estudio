@@ -22,7 +22,7 @@ CE.vistas = CE.vistas || {};
             (dd === 0 ? '' : '<span class="eval-card__lbl">' + (dd === 1 ? 'día' : 'días') + ' restantes</span>') + '</div>' +
             '<div><span class="rotulo">Posible alcance' + (ev.inferido ? ' (inferido del cronograma)' : '') + '</span><ul>' +
             unidades.map(function (u) { return '<li>' + esc(u) + '</li>'; }).join('') + '</ul></div>' +
-            '<a class="btn btn-acento" href="#/aprende/preparacion-parciales">Preparar esta evaluación' + I('flecha') + '</a>' +
+            '<a class="btn btn-acento" href="#/aprende/estudiar-parcial">Preparar esta evaluación' + I('flecha') + '</a>' +
             '</div>';
     }
 
@@ -62,7 +62,7 @@ CE.vistas = CE.vistas || {};
             CE.c.barra({ etiqueta: 'Morfología', valor: m.valor, detalle: m.hechos + ' de ' + m.total + ' pasos de estudio · ' + m.dominados + ' de ' + m.temas + ' temas dominados' }) +
             (b.temas ? CE.c.barra({ etiqueta: 'Biología', valor: b.valor, detalle: b.hechos + ' de ' + b.total + ' pasos' })
                      : '<div class="progreso"><div class="progreso__cab"><span>Biología</span><span class="chip">Plan pendiente</span></div><div class="progreso__det">Se medirá cuando se cargue su plan calendario.</div></div>') +
-            CE.c.barra({ etiqueta: 'Técnicas de estudio', valor: tc.valor, detalle: tc.hechos + ' de ' + tc.total + ' técnicas practicadas' }) +
+            CE.c.barra({ etiqueta: 'Técnicas de estudio', valor: tc.valor, detalle: tc.hechos + ' de ' + tc.total + ' técnicas leídas' }) +
             '</div><p class="tenue" style="margin:14px 0 0">Los porcentajes se calculan con lo que realmente completas.</p></section>';
     }
 

@@ -16,7 +16,7 @@ CE.c = CE.c || {};
         elaboracion: { titulo: 'Elaboración',          desc: 'Responde ¿qué es?, ¿cómo funciona?, ¿con qué se relaciona? o llena tu tabla comparativa.', tecnica: 'elaboracion' },
         recall:      { titulo: 'Recuperación activa',  desc: 'Cierra el material. Flashcards o escribe todo lo que recuerdes.', tecnica: 'active-recall' },
         autoeval:    { titulo: 'Autoevaluación',       desc: 'Preguntas del tema y revisión de errores. Anota qué repasar.', tecnica: 'estudiar-parcial' },
-        simulacion:  { titulo: 'Simulación del parcial', desc: 'Preguntas con tiempo y sin mirar, como en el examen.', tecnica: 'preparacion-parciales' },
+        simulacion:  { titulo: 'Simulación del parcial', desc: 'Preguntas con tiempo y sin mirar, como en el examen.', tecnica: 'estudiar-parcial' },
         pausa:       { titulo: 'Pausa corta',          desc: 'Levántate, toma agua, lejos de la pantalla.', tecnica: null }
     };
 
