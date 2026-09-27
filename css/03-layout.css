@@ -140,5 +140,15 @@ main:focus { outline: none; }
 .pie__autor span { display: block; color: var(--tx-suave); font-size: var(--t-sm); }
 .pie__nota { max-width: 440px; font-size: var(--t-xs); color: var(--tx-tenue); line-height: 1.55; }
 .pie__nota p { margin: 0 0 6px; }
-.pie__acciones { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-2); }
+.pie__insta {
+    display: inline-flex; align-items: center; gap: 12px; margin-top: var(--s-3);
+    padding: 10px 16px 10px 12px; border-radius: var(--r-md);
+    background: var(--amarillo); color: var(--azul-profundo); text-decoration: none;
+    transition: transform var(--t-anim), box-shadow var(--t-anim);
+}
+.pie__insta:hover { transform: translateY(-1px); box-shadow: var(--sombra-sm); }
+.pie__insta .icono { width: 26px; height: 26px; flex: none; }
+.pie__insta span { display: flex; flex-direction: column; line-height: 1.25; }
+.pie__insta b { font-size: var(--t-sm); }
+.pie__insta small { font-size: var(--t-xs); opacity: .85; }
 @media (max-width: 600px) { .pie__int { padding: var(--s-5) 16px; } }

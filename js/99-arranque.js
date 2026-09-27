@@ -13,9 +13,7 @@
             btn.setAttribute('aria-label', abierta ? 'Cerrar menú' : 'Abrir menú');
         },
         empezar: function () { CE.empezar.abrir(); },
-        cuenta: function () { CE.nube.abrir(); },
-        exportar: function () { CE.estado.exportar(); CE.u.aviso('Copia descargada'); },
-        importar: function () { document.querySelector('[data-importar]').click(); }
+        cuenta: function () { CE.nube.abrir(); }
     };
 
     document.addEventListener('click', function (e) {
@@ -23,20 +21,6 @@
         if (z) { e.preventDefault(); CE.c.ampliar(z.dataset.ampliar, z.dataset.alt); return; }
         var b = e.target.closest('[data-accion]');
         if (b && ACCIONES[b.dataset.accion]) { e.preventDefault(); ACCIONES[b.dataset.accion](b, e); }
-    });
-
-    document.querySelector('[data-importar]').addEventListener('change', function (e) {
-        var f = e.target.files[0]; if (!f) return;
-        var lector = new FileReader();
-        lector.onload = function () {
-            try {
-                CE.estado.importar(lector.result);
-                CE.u.aviso('Progreso restaurado');
-                CE.router.render();
-            } catch (err) { CE.u.aviso('Ese archivo no es una copia válida del progreso.'); }
-            e.target.value = '';
-        };
-        lector.readAsText(f);
     });
 
     CE.router.iniciar();

@@ -10,8 +10,7 @@ Recurso educativo de acompañamiento académico en Enfermería.
 - **Probar otra fecha:** `index.html?hoy=2026-10-01` simula ese día (útil para revisar el tablero).
 
 El progreso de la estudiante se guarda en `localStorage` de su navegador
-(clave `centro-estudio-v1`). En el pie de página hay botones para descargar y
-restaurar una copia.
+(clave `centro-estudio-v1`).
 
 **Progreso en la nube:** con sólo un nombre de usuario (sin correo ni contraseña)
 el progreso se sincroniza con una hoja de Google. Se activa pegando la URL del
