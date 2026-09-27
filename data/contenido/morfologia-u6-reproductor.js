@@ -49,9 +49,9 @@
         errores: ['Pensar que la fecundación ocurre en el útero: ocurre en la ampolla de la trompa.', 'Confundir anteversión (inclinación) con anteflexión (doblez).', 'Ubicar el orificio uretral por detrás del vaginal: está por delante.'],
         loQueDebesSaber: ['Partes de trompa y útero.', 'Capas de la pared uterina.', 'Posición normal del útero y variantes.', 'Ligamentos del útero y fondo de saco rectouterino.', 'Estructuras de la vulva en orden.'],
         laminas: [
-            { id: 'rp-sag', src: R + 'lamina-pelvis-sagital.jpg', titulo: 'Pelvis femenina, corte sagital (13, 14, 15, 18, 19 y 20)', fuente: F_TAL + '. Los números 16 y 17 se revisan con la docente.',
-              marcas: [{ n: '13', r: 'Trompa uterina (fimbrias)' }, { n: '14', r: 'Sacro' }, { n: '15', r: 'Recto' }, { n: '18', r: 'Vejiga urinaria' }, { n: '19', r: 'Útero' }, { n: '20', r: 'Ovario' }],
-              distractores: ['Vagina', 'Sínfisis del pubis'] },
+            { id: 'rp-sag', src: R + 'lamina-pelvis-sagital.jpg', titulo: 'Pelvis femenina, corte sagital (13 a 15 y 17 a 20)', fuente: F_TAL + '. El número 16 se revisa con la docente.',
+              marcas: [{ n: '13', r: 'Trompa uterina (fimbrias)' }, { n: '14', r: 'Sacro' }, { n: '15', r: 'Colon' }, { n: '17', r: 'Vejiga urinaria' }, { n: '18', r: 'Sínfisis del pubis' }, { n: '19', r: 'Útero' }, { n: '20', r: 'Ovario' }],
+              distractores: ['Vagina', 'Recto'] },
             { id: 'rp-utero', src: R + 'lamina-utero-corte.jpg', titulo: 'Útero y anexos, corte (50, 51, 52, 55 y 56)', fuente: F_TAL + '. Los números 53 y 54 se revisan con la docente.',
               marcas: [{ n: '50', r: 'Fondo del útero' }, { n: '51', r: 'Trompa uterina' }, { n: '52', r: 'Fimbrias' }, { n: '55', r: 'Cuello uterino (orificio externo)' }, { n: '56', r: 'Miometrio' }],
               distractores: ['Ovario', 'Endometrio'] },
