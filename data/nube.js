@@ -8,5 +8,5 @@
 
 window.CE = window.CE || {};
 CE.config = {
-    nubeUrl: ''
+    nubeUrl: 'https://script.google.com/macros/s/AKfycbzonyXjtcizW5ReLJ9ekto9H6sAQ2YLftc2g9-dMrk8d-fSED_8wDL16AdtkGgN5Vy7/exec'
 };
