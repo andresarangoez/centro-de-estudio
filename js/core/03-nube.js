@@ -122,7 +122,7 @@ CE.nube = (function () {
                 '<button type="button" data-modo="existe" aria-pressed="false">Ya tengo usuario</button></div>' +
                 '<form data-form-cuenta novalidate>' +
                 '<div class="campo"><label for="cuenta-u">Nombre de usuario</label>' +
-                '<input id="cuenta-u" class="entrada" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="30" placeholder="Ej.: sarah.gomez">' +
+                '<input id="cuenta-u" class="entrada" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="30" placeholder="Ej.: andres.arango">' +
                 '<small class="tenue" data-ayuda>Entre 3 y 30 caracteres: letras, números, punto o guion. Anótalo: lo necesitas para entrar desde otro dispositivo.</small></div>' +
                 '<p class="peque" data-error role="alert" style="color:var(--err);min-height:1.2em;margin:var(--s-2) 0"></p>' +
                 '<div class="fila" style="justify-content:space-between">' +
