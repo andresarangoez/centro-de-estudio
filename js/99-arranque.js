@@ -13,6 +13,7 @@
             btn.setAttribute('aria-label', abierta ? 'Cerrar menú' : 'Abrir menú');
         },
         empezar: function () { CE.empezar.abrir(); },
+        cuenta: function () { CE.nube.abrir(); },
         exportar: function () { CE.estado.exportar(); CE.u.aviso('Copia descargada'); },
         importar: function () { document.querySelector('[data-importar]').click(); }
     };
@@ -39,4 +40,5 @@
     });
 
     CE.router.iniciar();
+    CE.nube.iniciar();
 })();

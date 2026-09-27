@@ -88,7 +88,9 @@ CE.u = (function () {
         mas:       '<path d="M12 5v14M5 12h14"/>',
         pregunta:  '<circle cx="12" cy="12" r="8.5"/><path d="M9.5 9.5a2.6 2.6 0 1 1 3.6 2.4c-.7.3-1.1.9-1.1 1.6v.5M12 17h.01"/>',
         descargar: '<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>',
-        subir:     '<path d="M12 20V9M7 14l5-5 5 5M5 4h14"/>'
+        subir:     '<path d="M12 20V9M7 14l5-5 5 5M5 4h14"/>',
+        nube:      '<path d="M7 18.5h10.5a4 4 0 0 0 .6-7.95A5.5 5.5 0 0 0 7.4 9.1 4.7 4.7 0 0 0 7 18.5Z"/>',
+        usuario:   '<circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c.9-3.6 3.9-5.5 7.5-5.5s6.6 1.9 7.5 5.5"/>'
     };
     function icono(n, clase) {
         return '<svg class="icono ' + (clase || '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONOS[n] || '') + '</svg>';

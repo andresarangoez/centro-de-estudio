@@ -1,7 +1,8 @@
 /* ============================================================
    NÚCLEO · Estado y progreso
    Todo lo que hace la estudiante se guarda en localStorage de su
-   navegador. No hay cuentas ni servidor.
+   navegador. Si tiene usuario, js/core/03-nube.js lo sincroniza
+   con la nube (sin correo ni contraseña).
 
    Regla del progreso: los porcentajes se calculan SOLO a partir de
    pasos y actividades realmente completados. No hay números
@@ -25,6 +26,8 @@ CE.estado = (function () {
     function vacio() {
         return {
             version: 1,
+            usuario: null,    // dueño de estos datos (nube)
+            actualizado: 0,   // ms del último cambio: decide qué copia es la más reciente
             temas: {},        // id → { pasos:{1:true…}, manual, autoeval, quiz, elaboracion, tabla, repasos, visto }
             tecnicas: {},     // id → { hecha:bool, datos:{} }
             tarjetas: {},     // id de flashcard → 'dificil' | 'sabe'
@@ -41,8 +44,29 @@ CE.estado = (function () {
         } catch (e) { d = vacio(); }
         return d;
     }
-    function guardar() {
+    function escribir() {
         try { localStorage.setItem(CLAVE, JSON.stringify(d)); } catch (e) { /* modo privado: sigue funcionando en memoria */ }
+    }
+    function guardar() {
+        d.actualizado = Date.now();
+        escribir();
+        if (CE.nube) CE.nube.cambio();
+    }
+    /* Reemplaza todo el progreso (lo usa la nube): no marca un cambio nuevo */
+    function reemplazar(obj, usuario) {
+        d = Object.assign(vacio(), obj || {});
+        d.usuario = usuario || null;
+        escribir();
+    }
+    function tieneProgreso() {
+        return Object.keys(d.temas).length > 0 || Object.keys(d.tecnicas).length > 0 ||
+            Object.keys(d.tarjetas).length > 0 || d.misTarjetas.length > 0 || d.sesiones.length > 0;
+    }
+    /* Resumen para la hoja del tutor */
+    function resumen() {
+        var pasos = 0, dominados = 0, temas = CE.datos.temas;
+        temas.forEach(function (t) { pasos += pasosHechos(t.id); if (estadoTema(t.id) === 'dominado') dominados++; });
+        return { pct: Math.round(pasos / (temas.length * TOTAL_PASOS) * 100), pasos: pasos, dominados: dominados };
     }
 
     /* ---------- Temas ---------- */
@@ -172,17 +196,19 @@ CE.estado = (function () {
     function importar(texto) {
         var obj = JSON.parse(texto);
         if (!obj || typeof obj !== 'object' || !obj.temas) throw new Error('Archivo no válido');
+        var u = d.usuario;
         d = Object.assign(vacio(), obj);
+        d.usuario = u;
         guardar();
     }
-    function reiniciar() { d = vacio(); guardar(); }
+    function reiniciar() { d = vacio(); escribir(); }
 
     cargar();
 
     return {
         ESTADOS: ESTADOS, TOTAL_PASOS: TOTAL_PASOS,
         get datos() { return d; },
-        guardar: guardar,
+        guardar: guardar, reemplazar: reemplazar, tieneProgreso: tieneProgreso, resumen: resumen,
         tema: tema, marcarPaso: marcarPaso, pasoHecho: pasoHecho, pasosHechos: pasosHechos,
         progresoTema: progresoTema, estadoTema: estadoTema, estadoDerivado: estadoDerivado, fijarEstado: fijarEstado,
         progresoAsignatura: progresoAsignatura,

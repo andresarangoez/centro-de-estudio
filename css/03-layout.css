@@ -54,8 +54,27 @@
 
 .barra .barra__menu { display: none; margin-left: auto; }
 
+/* Cuenta: usuario de la nube (js/core/03-nube.js) */
+.cuenta {
+    display: inline-flex; align-items: center; gap: 6px; flex: none;
+    max-width: 190px; padding: 6px 12px;
+    border: 1px solid var(--azul-linea); border-radius: var(--r-pill);
+    background: var(--bg); color: var(--azul-profundo);
+    font: 600 var(--t-sm) var(--f-main); cursor: pointer;
+    transition: background var(--t-anim), border-color var(--t-anim);
+}
+.cuenta[hidden] { display: none; }
+.cuenta:hover { background: var(--azul-tinte); }
+.cuenta .icono { width: 18px; height: 18px; flex: none; }
+.cuenta__txt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cuenta__punto { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--ok); }
+.cuenta[data-estado="guardando"] .cuenta__punto { background: var(--amarillo-borde); }
+.cuenta[data-estado="error"] .cuenta__punto { background: var(--err); }
+.cuenta[data-estado="local"] { background: var(--amarillo); border-color: var(--amarillo); }
+
 @media (max-width: 900px) {
-    .barra .barra__menu { display: inline-flex; }
+    .barra .barra__menu { display: inline-flex; margin-left: 0; }
+    .cuenta { margin-left: auto; }
     .nav {
         display: none;
         position: absolute; top: var(--alto-barra); left: 0; right: 0;
@@ -82,6 +101,8 @@ main:focus { outline: none; }
 @media (max-width: 600px) {
     main { padding: var(--s-4) 16px var(--s-6); }
     .barra__int { padding: 0 16px; gap: var(--s-3); }
+    .firma__txt small { display: none; }
+    .cuenta { max-width: 132px; padding: 6px 10px; }
 }
 
 /* Cabecera de cada vista */

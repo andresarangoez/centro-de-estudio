@@ -75,6 +75,8 @@ CE.vistas = CE.vistas || {};
             return '' +
             '<section class="portada">' +
                 '<div>' +
+                    (CE.nube.usuario() ? '<p class="portada__hola">Hola, <b>' + esc(CE.nube.usuario()) + '</b></p>'
+                        : CE.nube.activo() ? '<p class="portada__hola"><button class="btn btn-texto" data-accion="cuenta">' + CE.u.icono('usuario') + 'Crea tu usuario para guardar tu progreso</button></p>' : '') +
                     '<h1>Bienvenido a tu espacio de <span>estudio</span></h1>' +
                     '<p class="portada__lema">Aprende a estudiar. Comprende tus ciencias básicas. Construye tu aprendizaje.</p>' +
                     '<div class="portada__meta">' +

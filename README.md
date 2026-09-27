@@ -13,6 +13,10 @@ El progreso de la estudiante se guarda en `localStorage` de su navegador
 (clave `centro-estudio-v1`). En el pie de página hay botones para descargar y
 restaurar una copia.
 
+**Progreso en la nube:** con sólo un nombre de usuario (sin correo ni contraseña)
+el progreso se sincroniza con una hoja de Google. Se activa pegando la URL del
+Apps Script en `data/nube.js`. Instalación: `docs/nube/INSTALAR.md`.
+
 ## Contenido
 
 - **Morfología:** 27 temas (7 unidades del plan calendario 2026-2) con explicación, tablas, figuras, aplicación en enfermería, láminas de identificación, mini caso, preguntas y flashcards.
