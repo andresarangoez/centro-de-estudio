@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centro de estudio · soy Andrés Arango</title>
+<meta name="description" content="Recurso educativo de acompañamiento académico en Enfermería. Elaborado por soy Andrés Arango.">
+<meta name="author" content="Andrés Arango">
+<meta name="robots" content="noindex, nofollow, noimageindex">
+<link rel="icon" type="image/png" href="assets/branding/logo-soy-andres-arango.png">
+
+<!-- Tipografías: Inter (trabajo) y Archivo Black (números de la ruta de estudio),
+     las mismas del ecosistema OVA / JULIA. Si no hay internet, se usan las del sistema. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap">
+
+<!-- Estilos, en orden de dependencia: 01 define los tokens; el resto los usa. -->
+<link rel="stylesheet" href="css/01-variables.css">
+<link rel="stylesheet" href="css/02-base.css">
+<link rel="stylesheet" href="css/03-layout.css">
+<link rel="stylesheet" href="css/04-componentes.css">
+<link rel="stylesheet" href="css/05-vistas.css">
+</head>
+
+<body>
+
+<!-- ============================================================
+     BARRA SUPERIOR · firma discreta + navegación
+     ============================================================ -->
+<header class="barra">
+    <div class="barra__int">
+        <a class="firma" href="#/inicio" aria-label="Centro de estudio, inicio. Un recurso de soy Andrés Arango">
+            <img class="firma__logo" src="assets/branding/logo-soy-andres-arango.png" alt="" width="34" height="34">
+            <span class="firma__txt"><b>Centro de estudio</b><small>Un recurso de soy Andrés Arango</small></span>
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Principal">
+            <a href="#/inicio"     data-sec="inicio">Inicio</a>
+            <a href="#/plan"       data-sec="plan">Mi plan</a>
+            <a href="#/aprende"    data-sec="aprende">Aprende a estudiar</a>
+            <a href="#/morfologia" data-sec="morfologia">Morfología</a>
+            <a href="#/biologia"   data-sec="biologia">Biología</a>
+            <a href="#/practicar"  data-sec="practicar">Practicar</a>
+        </nav>
+
+        <button class="btn-icono barra__menu" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú" data-accion="menu">
+            <svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+    </div>
+</header>
+
+<!-- Vista activa: la dibuja js/core/02-router.js -->
+<main id="app" tabindex="-1"></main>
+
+<!-- ============================================================
+     PIE · firma editorial
+     ============================================================ -->
+<footer class="pie">
+    <div class="pie__int">
+        <div>
+            <div class="pie__autor">
+                <img src="assets/branding/logo-soy-andres-arango.png" alt="Logo soy Andrés Arango" width="48" height="48">
+                <div>
+                    <b>Elaborado por soy Andrés Arango</b>
+                    <span>Recurso educativo de acompañamiento académico</span>
+                </div>
+            </div>
+            <div class="pie__acciones">
+                <button class="btn btn-secundario btn-peque" data-accion="exportar">Guardar copia de mi progreso</button>
+                <button class="btn btn-secundario btn-peque" data-accion="importar">Restaurar copia</button>
+                <input type="file" accept="application/json,.json" data-importar hidden>
+            </div>
+        </div>
+        <div class="pie__nota">
+            <p>Diseñado para acompañar tu proceso de aprendizaje. Es un recurso independiente: no es una plataforma oficial de la FUCS ni reemplaza las clases, la bibliografía ni las evaluaciones del curso.</p>
+            <p>El calendario se tomó del plan calendario de la asignatura. Las autoevaluaciones son formativas.</p>
+            <p>Tu progreso se guarda sólo en este navegador.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+     GUION DE CARGA · el orden importa
+     datos → núcleo → componentes → vistas → arranque
+     Son scripts clásicos (no módulos) para que funcione igual con
+     Live Server que abriendo index.html con doble clic.
+     ============================================================ -->
+<script src="data/calendario.js"></script>
+<script src="data/temas.js"></script>
+<script src="data/tecnicas.js"></script>
+<script src="data/preguntas.js"></script>
+<script src="data/flashcards.js"></script>
+<!-- Contenido académico por unidad (adjunta material a los temas) -->
+<script src="data/contenido/morfologia-u1-generalidades.js"></script>
+<script src="data/contenido/morfologia-u2-nervioso.js"></script>
+<script src="data/contenido/morfologia-u3-cara-cuello.js"></script>
+<script src="data/contenido/morfologia-u4-torax.js"></script>
+<script src="data/contenido/morfologia-u5-abdomen.js"></script>
+<script src="data/contenido/morfologia-u6-reproductor.js"></script>
+<script src="data/contenido/morfologia-u7-miembros.js"></script>
+<script src="data/contenido/biologia.js"></script>
+
+<script src="js/core/00-util.js"></script>
+<script src="js/core/01-estado.js"></script>
+<script src="js/core/02-router.js"></script>
+
+<script src="js/components/progreso.js"></script>
+<script src="js/components/modal.js"></script>
+<script src="js/components/tabla.js"></script>
+<script src="js/components/flashcards.js"></script>
+<script src="js/components/quiz.js"></script>
+<script src="js/components/lamina.js"></script>
+<script src="js/components/temporizador.js"></script>
+
+<script src="js/modules/inicio.js"></script>
+<script src="js/modules/plan.js"></script>
+<script src="js/modules/aprende.js"></script>
+<script src="js/modules/asignatura.js"></script>
+<script src="js/modules/tema.js"></script>
+<script src="js/modules/practica.js"></script>
+<script src="js/modules/empezar.js"></script>
+<script src="js/modules/sesion.js"></script>
+
+<script src="js/99-arranque.js"></script>
+</body>
+</html>

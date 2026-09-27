@@ -1,0 +1,123 @@
+/* ============================================================
+   LAYOUT — barra superior, contenedor y pie de página
+   ============================================================ */
+
+/* ---------- Barra superior ---------- */
+.barra {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255, 255, 255, .96);
+    backdrop-filter: saturate(1.4) blur(6px);
+    border-bottom: 1px solid var(--linea);
+}
+.barra__int {
+    max-width: var(--ancho);
+    margin: 0 auto;
+    height: var(--alto-barra);
+    padding: 0 var(--s-4);
+    display: flex; align-items: center; gap: var(--s-4);
+}
+
+/* Firma de marca: logo real + nombre del recurso */
+.firma {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: inherit;
+    flex: none;
+}
+.firma__logo {
+    width: 34px; height: 34px;       /* cuadrado: respeta la proporción 1:1 del archivo */
+    border-radius: 50%;
+    object-fit: contain;
+}
+.firma__txt { display: flex; flex-direction: column; line-height: 1.15; }
+.firma__txt b {
+    font-size: .95rem; font-weight: 800; color: var(--azul-profundo);
+    letter-spacing: -.01em;
+}
+.firma__txt small { font-size: .72rem; color: var(--tx-suave); }
+
+.nav { display: flex; gap: 2px; margin-left: auto; }
+.nav a {
+    position: relative;
+    padding: 8px 12px;
+    border-radius: var(--r-sm);
+    text-decoration: none;
+    font-size: var(--t-sm); font-weight: 600;
+    color: var(--tx-suave);
+    transition: color var(--t-anim), background var(--t-anim);
+}
+.nav a:hover { color: var(--azul-profundo); background: var(--bg-alt); }
+.nav a[aria-current="page"] { color: var(--azul-profundo); }
+.nav a[aria-current="page"]::after {
+    content: ''; position: absolute; left: 12px; right: 12px; bottom: 2px;
+    height: 3px; border-radius: 3px; background: var(--amarillo);
+}
+
+.barra .barra__menu { display: none; margin-left: auto; }
+
+@media (max-width: 900px) {
+    .barra .barra__menu { display: inline-flex; }
+    .nav {
+        display: none;
+        position: absolute; top: var(--alto-barra); left: 0; right: 0;
+        flex-direction: column; gap: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--linea);
+        box-shadow: var(--sombra);
+        padding: var(--s-2) var(--s-3) var(--s-3);
+    }
+    .nav.abierta { display: flex; }
+    .nav a { padding: 12px; font-size: var(--t-md); }
+    .nav a[aria-current="page"]::after { left: 0; right: auto; top: 12px; bottom: 12px; width: 3px; height: auto; }
+}
+
+/* ---------- Contenido ---------- */
+main {
+    max-width: var(--ancho);
+    margin: 0 auto;
+    padding: var(--s-5) var(--s-4) var(--s-6);
+    min-height: calc(100vh - var(--alto-barra) - 160px);
+}
+main:focus { outline: none; }
+
+@media (max-width: 600px) {
+    main { padding: var(--s-4) 16px var(--s-6); }
+    .barra__int { padding: 0 16px; gap: var(--s-3); }
+}
+
+/* Cabecera de cada vista */
+.cabecera { margin-bottom: var(--s-5); max-width: 760px; }
+.cabecera .rotulo { display: block; margin-bottom: 6px; }
+.cabecera p { color: var(--tx-suave); font-size: var(--t-lg); margin: 0; }
+
+.migas { font-size: var(--t-sm); margin-bottom: var(--s-3); color: var(--tx-tenue); }
+.migas a { color: var(--tx-suave); text-decoration: none; }
+.migas a:hover { text-decoration: underline; }
+
+/* Rejillas */
+.rejilla { display: grid; gap: var(--s-4); }
+.rejilla-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rejilla-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.rejilla-auto { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+@media (max-width: 860px) { .rejilla-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .rejilla-2, .rejilla-3 { grid-template-columns: 1fr; } }
+
+/* ---------- Pie de página: firma editorial ---------- */
+.pie {
+    border-top: 1px solid var(--linea);
+    background: var(--bg-alt);
+}
+.pie__int {
+    max-width: var(--ancho);
+    margin: 0 auto;
+    padding: var(--s-5) var(--s-4);
+    display: flex; flex-wrap: wrap; gap: var(--s-4) var(--s-6);
+    align-items: flex-start; justify-content: space-between;
+}
+.pie__autor { display: flex; gap: 14px; align-items: center; }
+.pie__autor img { width: 48px; height: 48px; border-radius: 50%; }
+.pie__autor b { display: block; color: var(--azul-profundo); font-size: var(--t-md); }
+.pie__autor span { display: block; color: var(--tx-suave); font-size: var(--t-sm); }
+.pie__nota { max-width: 440px; font-size: var(--t-xs); color: var(--tx-tenue); line-height: 1.55; }
+.pie__nota p { margin: 0 0 6px; }
+.pie__acciones { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-2); }
+@media (max-width: 600px) { .pie__int { padding: var(--s-5) 16px; } }
